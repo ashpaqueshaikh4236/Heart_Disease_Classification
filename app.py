@@ -38,10 +38,14 @@ Selected_data = (Age,Sex,Cp,Trestbs,Chol,Fbs,Restecg,Thalach,Exang,Oldpeak,Slope
 try:
     if st.button('Predict'):
         rehasped_data = np.asarray(Selected_data).reshape(1,-1)
-        prediction = model.predict(rehasped_data)
-        if prediction[0] == 0:
-            st.success("Person has no Deissis")
+        if 'select' in reshaped_data or '' in reshaped_data:
+            st.warning('Please fill all values')
         else:
-            st.warning("Person has Deissis")
-except:
-    st.warning("Fill all values")
+            prediction = model.predict(rehasped_data)
+            if prediction[0] == 0:
+                st.success("Person has no Deissis")
+            else:
+                st.warning("Person has Deissis")
+                
+except Exception as e:
+    st.warning(f'An error occurred: {e}')
