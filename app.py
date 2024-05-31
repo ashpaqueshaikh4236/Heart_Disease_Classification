@@ -37,11 +37,11 @@ Selected_data = (Age,Sex,Cp,Trestbs,Chol,Fbs,Restecg,Thalach,Exang,Oldpeak,Slope
 
 try:
     if st.button('Predict'):
-        rehasped_data = np.asarray(Selected_data).reshape(1,-1)
-        if 'select' in rehasped_data or '' in rehasped_data:
+        reshaped_data = np.asarray(Selected_data).reshape(1,-1)
+        if 'select' in reshaped_data or '' in reshaped_data:
             st.warning('Please fill all values')
         else:
-            prediction = model.predict(rehasped_data)
+            prediction = model.predict(reshaped_data)
             if prediction[0] == 0:
                 st.success("Person has no Deissis")
             else:
