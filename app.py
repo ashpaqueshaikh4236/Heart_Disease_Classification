@@ -38,7 +38,7 @@ Selected_data = (Age,Sex,Cp,Trestbs,Chol,Fbs,Restecg,Thalach,Exang,Oldpeak,Slope
 try:
     if st.button('Predict'):
         rehasped_data = np.asarray(Selected_data).reshape(1,-1)
-        if 'select' in reshaped_data or '' in reshaped_data:
+        if 'select' in rehasped_data or '' in rehasped_data:
             st.warning('Please fill all values')
         else:
             prediction = model.predict(rehasped_data)
